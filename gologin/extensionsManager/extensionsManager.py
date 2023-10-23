@@ -101,7 +101,10 @@ def getExtMetadata(extUrl):
 
 def getExtVersion(metadata):
     extFullName = metadata.split('/')[6]
-    splitExtName = extFullName.split('n_')[1]
-    ver = splitExtName.split('.')[0]
+    splitExtName = extFullName.split('n_')
+    if len(splitExtName) > 1:
+        ver = splitExtName[1].split('.')[0]
+    else:
+        ver = "latest"
 
     return ver
